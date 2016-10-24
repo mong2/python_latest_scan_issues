@@ -6,7 +6,10 @@ from config import CONFIG
 class ApiController():
     @staticmethod
     def build_http_seesion():
-        session = cloudpassage.HaloSession(CONFIG["key_id"], CONFIG["secret_key"])
+        session = cloudpassage.HaloSession(CONFIG["key_id"],
+                                           CONFIG["secret_key"],
+                                           api_port=CONFIG["api_port"],
+                                           api_host=CONFIG["api_hostname"])
         return cloudpassage.HttpHelper(session)
 
     def get(self, endpoint):
@@ -42,3 +45,4 @@ class ApiController():
             else:
                 filter_list.append("%s=%s" % (filt, kwargs[filt]))
         return "?%s" % ("&".join(filter_list))
+

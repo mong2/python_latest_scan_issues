@@ -1,3 +1,4 @@
-key_id: 
-secret_key: 
-api_hostname : https://api.cloudpassage.com
+key_id:
+secret_key:
+api_port: 443
+api_hostname : api.cloudpassage.com
