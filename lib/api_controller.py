@@ -45,4 +45,3 @@ class ApiController():
             else:
                 filter_list.append("%s=%s" % (filt, kwargs[filt]))
         return "?%s" % ("&".join(filter_list))
-

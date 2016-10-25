@@ -3,6 +3,7 @@
 from threading import Thread
 from Queue import Queue
 import dateutil.parser
+from lib.filter import FilteredServer
 from lib.servers_controller import ServersController
 from lib.scan_controller import ScansController
 from lib.issue_controller import IssuesController
@@ -16,6 +17,7 @@ MODULE_MAP = {
 
 queue = Queue()
 out_queue = Queue()
+
 
 class LatestScanIssueProducerThread(Thread):
     def __init__(self, queue, out_queue):
@@ -39,6 +41,7 @@ class LatestScanIssueProducerThread(Thread):
                 self.out_queue.put([[srv, self.scans.insert_age(scan_data, self.issues.insert_age(issue_data))]])
             self.queue.task_done()
 
+
 class LatestScanIssueConsumerThread(Thread):
     def __init__(self, out_queue):
         Thread.__init__(self)
@@ -55,9 +58,9 @@ class LatestScanIssueConsumerThread(Thread):
                 self.files.as_json("%s/server_info" % (filepath), srv)
             self.out_queue.task_done()
 
+
 def main():
-    servers = ServersController()
-    srvs = servers.index()["servers"]
+    srvs = FilteredServer().aggregated_srvs()
 
     for p in range(8):
         producer = LatestScanIssueProducerThread(queue, out_queue)
