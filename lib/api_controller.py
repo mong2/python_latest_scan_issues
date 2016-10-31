@@ -4,7 +4,7 @@ from config import CONFIG
 
 class ApiController():
     @staticmethod
-    def build_http_seesion():
+    def build_http_session():
         session = cloudpassage.HaloSession(CONFIG["key_id"],
                                            CONFIG["secret_key"],
                                            api_port=CONFIG["api_port"],
@@ -12,7 +12,7 @@ class ApiController():
         return cloudpassage.HttpHelper(session)
 
     def get(self, endpoint):
-        return self.build_http_seesion().get(endpoint)
+        return self.build_http_session().get(endpoint)
 
     def find_primary_key(self, keys):
         blacklist = set(['count', 'pagination'])
