@@ -14,13 +14,15 @@ This program archives the latest scan issues for all active servers and deactiva
     key_id: 12345
     secret_key: abcabcabcabcabc
     ```
+3. change `last_24_hours` to False in `portal.yml` located in `configs/portal.yml` if trying to archive scan issues for all active servers ONLY
 
-<b> Dependencies: </b>
+3. Python 2.7.10
 
-1. Python 2.7.10
-2. cloudpassage python package
-3. dateutil.parser (install via pip install python-dateutil)
-4. logbook (install via pip install logbook)
+4. cloudpassage python package
+
+5. dateutil.parser (install via pip install python-dateutil)
+
+6. logbook (install via pip install logbook)
 
 <b> Program Usage: </b>
 
