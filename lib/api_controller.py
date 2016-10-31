@@ -2,7 +2,6 @@ import re
 import cloudpassage
 from config import CONFIG
 
-
 class ApiController():
     @staticmethod
     def build_http_seesion():

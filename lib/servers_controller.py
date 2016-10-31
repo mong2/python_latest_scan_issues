@@ -1,5 +1,4 @@
 from api_controller import ApiController
-from config import CONFIG
 
 class ServersController(object):
 	def __init__(self):

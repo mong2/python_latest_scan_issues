@@ -1,5 +1,3 @@
-import json
-
 class ScansController(object):
 	def clean_good_findings(self, scan_data):
 		scan_data = [ x for x in scan_data["scan"]["findings"] if x["status"] == "bad" ]

@@ -12,7 +12,7 @@ class IssuesController(object):
 		return self.api.get("/v2/issues/%s" % issue_id)
 
 	def age (self, created_at, last_see_at):
-		age = dateutil.parser.parse(created_at) - dateutil.parser.parse(last_see_at)
+		age = dateutil.parser.parse(last_see_at) - dateutil.parser.parse(created_at)
 		return str(age.days)
 
 	def insert_age(self, issue_data):
