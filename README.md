@@ -14,7 +14,7 @@ This program archives the latest scan issues for all active servers and deactiva
     key_id: 12345
     secret_key: abcabcabcabcabc
     ```
-3. change `last_24_hours` to False in `portal.yml` located in `configs/portal.yml` if trying to archive scan issues for all active servers ONLY
+3. change `last_24_hours: False` in `portal.yml` located in `configs/portal.yml` if trying to archive scan issues for all active servers ONLY
 
 3. Python 2.7.10
 
