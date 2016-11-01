@@ -6,7 +6,7 @@ class IssuesController(object):
 		self.api = ApiController()
 
 	def index(self, **kwargs):
-		return self.api.get_paginated("/v2/issues/", **kwargs)
+		return self.api.get_paginated("/v2/issues", **kwargs)
 
 	def show(self, issue_id):
 		return self.api.get("/v2/issues/%s" % issue_id)

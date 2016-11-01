@@ -6,9 +6,12 @@ class FilteredServer():
 	def __init__ (self):
 		self.server = ServersController()
 
+	def get_24hours_timestamp(self):
+		return datetime.datetime.utcnow() - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
+
 	def filtered_srvs(self):
 		kwargs = { "state": 'deactivated',
-				   "last_state_change_gte": datetime.datetime.utcnow().strftime("%Y-%m-%d")}
+				   "last_state_change_gte": self.get_24hours_timestamp}
 		return self.server.index(**kwargs)["servers"]
 
 	def active_srvs(self):
