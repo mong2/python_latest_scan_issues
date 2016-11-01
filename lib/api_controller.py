@@ -1,4 +1,5 @@
 import re
+import os
 import cloudpassage
 from config import CONFIG
 
@@ -8,8 +9,8 @@ class ApiController():
         key_id = os.environ['KEY_ID'] or CONFIG['key_id']
         secret_key = os.environ['SECRET_KEY'] or CONFIG['secret_key']
 
-        session = cloudpassage.HaloSession(CONFIG["key_id"],
-                                           CONFIG["secret_key"],
+        session = cloudpassage.HaloSession(key_id,
+                                           secret_key,
                                            api_port=CONFIG["api_port"],
                                            api_host=CONFIG["api_hostname"])
         return cloudpassage.HttpHelper(session)
