@@ -14,7 +14,7 @@ class TestLastScanIssues:
 		return ApiController()
 
 	def build_test_timestamp(self):
-		return datetime.datetime.utcnow() - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
+		return (datetime.datetime.utcnow() - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
 
 	def test_server_filter():
 		api = self.build_api_object()
