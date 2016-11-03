@@ -3,6 +3,7 @@ import os
 import cloudpassage
 from config import CONFIG
 
+
 class ApiController():
     @staticmethod
     def build_http_session():
@@ -43,7 +44,7 @@ class ApiController():
     def form_filter(self, **kwargs):
         filter_list = []
         for filt in kwargs:
-            if type(kwargs[filt]) is list :
+            if type(kwargs[filt]) is list:
                 filter_list.append("%s=%s" % (filt, ','.join(kwargs[filt])))
             else:
                 filter_list.append("%s=%s" % (filt, kwargs[filt]))
