@@ -35,3 +35,10 @@ python latest_scan_issues.py
 <b> Program Output </b>
 
 The archive scan issue data will be stored in the `data` directory.
+
+
+<!---
+
+#CPTAGS:community-supported archive
+
+-->
