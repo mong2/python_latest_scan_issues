@@ -18,11 +18,11 @@ class TestLastScanIssues:
 
 	def test_server_filter(self):
 		api = self.build_api_object()
-		resp = api.get("/v1/servers?last_state_change_gte=%s" % self.build_test_timestamp())
+		resp = api.get("/v1/servers?state=deactivated")
 		assert resp["servers"]
 
 		for server in resp["servers"]:
-			assert server["last_state_change"] >= self.build_test_timestamp
+			assert server["state"] == "deactivated"
 
 	def test_issue_filter(self):
 		api = self.build_api_object()
