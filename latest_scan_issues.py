@@ -75,7 +75,7 @@ def main():
     print "--- %s servers ---" % (len(srvs))
     log.write_log("--- %s servers ---" % (len(srvs)))
 
-    for p in range(8):
+    for p in range(3):
         producer = LatestScanIssueProducerThread(queue, out_queue)
         producer.daemon = True
         producer.start()
@@ -84,7 +84,7 @@ def main():
         for scans_mod, issues_mod in MODULE_MAP.iteritems():
             queue.put((srv, scans_mod, issues_mod))
 
-    for w in range(5):
+    for w in range(2):
         consumer = LatestScanIssueConsumerThread(out_queue)
         consumer.daemon = True
         consumer.start()
