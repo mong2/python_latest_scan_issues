@@ -1,5 +1,4 @@
 import re
-import os
 import cloudpassage
 from config import CONFIG
 
@@ -7,8 +6,8 @@ from config import CONFIG
 class ApiController():
     @staticmethod
     def build_http_session():
-        key_id = os.environ['KEY_ID'] or CONFIG['key_id']
-        secret_key = os.environ['SECRET_KEY'] or CONFIG['secret_key']
+        key_id = CONFIG['key_id']
+        secret_key = CONFIG['secret_key']
 
         session = cloudpassage.HaloSession(key_id,
                                            secret_key,
